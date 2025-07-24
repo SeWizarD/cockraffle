@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Address, erc20ABI, useAccount, useContractRead } from "wagmi";
 
 
-export function useGetDecimals(tokenAddress: Address, isDisconnected) : {decimals: bigint} {
+export function useGetDecimals(tokenAddress: Address, isDisconnected:boolean) : {decimals: bigint | undefined} {
   const [decimals, setDecimals] = useState<bigint>()
 
   const tokenConfig = {

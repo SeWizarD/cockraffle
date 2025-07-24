@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Address, erc20ABI, useAccount, useContractRead } from "wagmi";
 
 
-export function useGetFee(address: Address, isDisconnected: boolean): {fee: bigint} {
+export function useGetFee(address: Address, isDisconnected: boolean): {fee: bigint | undefined} {
   const [fee, setFee] = useState<bigint>()
 
   const raffleConfig = {

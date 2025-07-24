@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { Address, erc20ABI, useAccount, useContractRead } from "wagmi";
 
 
-export function useGetSymbol(tokenAddress: Address, isDisconnected) : {symbol: string} {
+export function useGetSymbol(tokenAddress: Address, isDisconnected: boolean) : {symbol: string | undefined} {
   const [symbol, setSymbol] = useState<string>()
-  function sleep(ms) {
+  function sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   

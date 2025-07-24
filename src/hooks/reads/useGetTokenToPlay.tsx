@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Address, erc20ABI, useAccount, useContractRead } from "wagmi";
 
 
-export function useGetTokenToPlay(address: Address, isDisconnected) : {tokenToPlay: Address} {
+export function useGetTokenToPlay(address: Address, isDisconnected: boolean) : {tokenToPlay: Address | undefined} {
   
   const [tokenToPlay, setTokenToPlay] = useState<Address>()
 

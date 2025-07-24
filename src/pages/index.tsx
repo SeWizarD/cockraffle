@@ -34,6 +34,9 @@ import { useJoinPot } from "@/hooks/writes/useJoinPot";
 import { MinimalConnect } from "@/component/Header/minimalConnect";
 import { join } from "path";
 import { useGetSymbol } from "@/hooks/reads/useGetSymbol";
+import { fireConfetti } from "@/utils/confetti";
+
+
 const skills = [90, 60, 40, 20];
 
 export default function Home() {
@@ -288,7 +291,11 @@ export default function Home() {
         setNewDate(new Date(Number(countdownTimeStamp.timeStamp)*1000));
     }
   },[countdownTimeStamp]);
-  
+useEffect(() => {
+  if (_roundById && address && _roundById.winner.toLowerCase() === address.toLowerCase()) {
+    fireConfetti();
+}
+}, [_roundById, address]);
 
   
   // const newDate = new Date(Number(countdownTimeStamp?.timeStamp))
@@ -299,9 +306,9 @@ export default function Home() {
 
       <div className="flex lg:flex-row flex-col gap-4">
         <div className="lg:w-2/3 w-full sm:mb-10  min-h-[20rem] 2xl:max-h-[50rem] max-h-[33.5rem] lg:p-4 bg-stone-900 bg-opacity-60 rounded-lg">
-          <div className="2xl:scale-100 scale-95">
+          <div className="2xl:scale-100 scale-95">  
           <div className="lg:mt-0 mt-5 text-gray-300 text-xl text-center font-bold leading-tight tracking-wide">
-            MATIC Main Pot - 1 min
+            USDC MAIN R R - 1 min
             {/* {address} */}
             {/* {allowance?.toString()} */}
           </div>

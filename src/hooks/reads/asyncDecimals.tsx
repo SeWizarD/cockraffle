@@ -1,11 +1,12 @@
 import { tokenABI } from "@/generated";
 import { formatAmountTokens } from "@/utils/formater";
 import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { Address, erc20ABI, useAccount, useContractRead } from "wagmi";
 
 
-export async function asyncDecimals(tokenAddress: Address, userAddress: Address, decimals, setDecimals, balance, setBalance, isDisconnected:boolean) {
-    function sleep(ms) {
+export async function asyncDecimals(tokenAddress: Address, userAddress: Address, decimals: number, setDecimals: Dispatch<SetStateAction<number | undefined>>, balance: number, setBalance:  Dispatch<SetStateAction<number | undefined>>, isDisconnected:boolean) {
+    function sleep(ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms));
         }
   const tokenConfig = {
@@ -13,12 +14,12 @@ export async function asyncDecimals(tokenAddress: Address, userAddress: Address,
     abi: tokenABI
   }
   const enabled = !isDisconnected;
-  let read = useContractRead({
+  let read =  useContractRead({
     enabled: enabled,
     functionName: "decimals",
     ...tokenConfig,
     watch: false,
-    onSuccess(decimals) {
+    onSuccess(decimals: number) {
         setDecimals(decimals)
         console.log("balanceOf")
     },

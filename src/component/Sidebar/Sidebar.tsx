@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className, toggleSidebar }) => {
               </div>
             </div>
           </Link>
-          <Link href={`/stake`}>
+          {/* <Link href={`/stake`}>
             <div
               className={`hover:scale-102 active:scale-100 flex flex-row items-center w-[60dvw] lg:w-[20dvw] h-12 ${
                 pathName == "/stake" && "active"
@@ -49,8 +49,8 @@ const Sidebar: React.FC<SidebarProps> = ({ className, toggleSidebar }) => {
                 STAKE
               </div>
             </div>
-          </Link>
-          <Link href={`/partners`}>
+          </Link> */}
+          {/* <Link href={`/partners`}>
             <div
               className={`hover:scale-102 active:scale-100 flex flex-row items-center w-[60dvw] lg:w-[20dvw] h-12 ${
                 pathName == "/partners" && "active"
@@ -60,6 +60,28 @@ const Sidebar: React.FC<SidebarProps> = ({ className, toggleSidebar }) => {
               <div className="w-full text-gray-300 text-lg text-center font-medium leading-tight tracking-wide">
                 PARTNERS
               </div>
+            </div>
+          </Link> */}
+          <div
+            className={`hover:scale-102 active:scale-100 flex flex-row items-center w-[60dvw] lg:w-[20dvw] h-12 ${
+              pathName == "/partners" && "active"
+            }`}
+          >
+            <FaRegHandshake color={"#D3CFDD"} size={20} className="ml-6 " />
+            <div className="w-full text-gray-300 text-lg text-center font-medium leading-tight tracking-wide">
+              COMING SOON!
+            </div>
+          </div>
+          <Link href="https://farcaster.xyz/~/token/COCK">
+          <div
+            className={`hover:scale-102 active:scale-100 flex flex-row items-center w-[60dvw] lg:w-[20dvw] h-12 ${
+              pathName == "/partners" && "active"
+            }`}
+            >
+            <FaRegHandshake color={"#D3CFDD"} size={20} className="ml-6 " />
+            <div className="w-full text-gray-300 text-lg text-center font-medium leading-tight tracking-wide">
+              BUY COCK
+            </div>
             </div>
           </Link>
         </div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Address, erc20ABI, useAccount, useContractRead } from "wagmi";
 
 
-export function useGetBalance(tokenAddress: Address, userAddress: Address, isDisconnected: boolean) : {balance: bigint} {
+export function useGetBalance(tokenAddress: Address, userAddress: Address, isDisconnected: boolean) : {balance: bigint | undefined} {
   const [balance, setBalance] = useState<bigint>()
 
   const tokenConfig = {

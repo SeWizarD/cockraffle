@@ -13,7 +13,7 @@ import {
   
   
   
-  export function useApproveTokenAmount(tokenAddress: Address, potAddress: Address, tokenAmount: bigint, refetchSimulator) {
+  export function useApproveTokenAmount(tokenAddress: Address, potAddress: Address, tokenAmount: bigint, refetchSimulator: () => void) {
     const tokenConfig = {
         address: tokenAddress as `0x${string}`,
         abi: tokenABI,

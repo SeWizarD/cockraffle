@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Address, erc20ABI, useAccount, useContractRead } from "wagmi";
 
 
-export function useGetallowance(tokenAddress: Address, userAddress: Address, potAddress: Address, isDisconnected: boolean) : {allowance: bigint} {
+export function useGetallowance(tokenAddress: Address, userAddress: Address, potAddress: Address, isDisconnected: boolean) : {allowance: bigint | undefined} {
   const [allowance, setAllowance] = useState<bigint>()
   const tokenConfig = {
     address: tokenAddress,

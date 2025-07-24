@@ -3,15 +3,16 @@ import { useEffect, useState } from "react";
 import { Address, erc20ABI, useAccount, useContractRead } from "wagmi";
 
 
-export function useGetRoundById(address: Address, currentRound: bigint, isDisconnected): {roundById : {
+export function useGetRoundById(address: Address, currentRound: bigint, isDisconnected: boolean): {roundById : {
   winnerClaimed: boolean;
   winner: Address; 
   tokensPlayed: bigint;
   winnerRequest: bigint;
   startTimeStamp: bigint;
-}} 
+  endTimeStamp: bigint;
+} | undefined} 
 {
-  function sleep(ms) {
+  function sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   const [roundById, setRoundById] = useState<{
@@ -19,6 +20,7 @@ export function useGetRoundById(address: Address, currentRound: bigint, isDiscon
     winner: Address; 
     tokensPlayed: bigint;
     winnerRequest: bigint;
+    startTimeStamp: bigint;
     endTimeStamp: bigint;
   }>()
   const [roundDuration, setRoundDuration] = useState<bigint>()
@@ -64,6 +66,7 @@ export function useGetRoundById(address: Address, currentRound: bigint, isDiscon
           winner,
           tokensPlayed,
           winnerRequest,  
+          startTimeStamp,
           endTimeStamp
         })
       }
